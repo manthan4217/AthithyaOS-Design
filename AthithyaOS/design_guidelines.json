@@ -1,0 +1,152 @@
+{
+  "project_name": "Athithya OS",
+  "domain": "Hospitality Management OS",
+  "theme": "Light theme default with heavy glassmorphism, depth, and dark/slate accents. Modern Corporate Hospitality OS.",
+  "archetype": "Archetype 4 (Swiss & High-Contrast) + Archetype 5 (Luxury) Hybrid with VisionOS spatial depth.",
+  "design_principles": [
+    "Spatial Depth: Use heavy glassmorphism (12-24px backdrop blur), Z-index layering, and subtle noise overlays to mimic an OS environment.",
+    "High Performance: 60 FPS hardware-accelerated animations using Framer Motion (fade, scale, blur, slide).",
+    "Enterprise Density: Asymmetric, information-dense layouts suitable for heavy operational load without feeling cluttered.",
+    "Interaction Feedback: Micro-animations on every interaction, hover glows, card tilts, mouse-reactive neon highlights.",
+    "Calm During Peak Hours: Use luxury accents (Gold) and calming primary (Deep Slate, Emerald) to reduce cognitive overload for staff."
+  ],
+  "colors": {
+    "primary": "#0F172A",
+    "secondary": "#10B981",
+    "accent_cyan": "#00E5FF",
+    "luxury_gold": "#D4AF37",
+    "background": "#F8FAFC",
+    "surface": "#FFFFFF",
+    "border": "#E2E8F0",
+    "text": "#0F172A",
+    "success": "#10B981",
+    "warning": "#F59E0B",
+    "danger": "#EF4444",
+    "info": "#3B82F6",
+    "glass_light": "rgba(255, 255, 255, 0.7)",
+    "glass_dark": "rgba(15, 23, 42, 0.8)",
+    "glass_border": "rgba(255, 255, 255, 0.4)"
+  },
+  "typography": {
+    "font_family": "Inter, sans-serif",
+    "sizes": {
+      "display": "48px (text-5xl)",
+      "headline": "32px (text-3xl)",
+      "section_title": "24px (text-2xl)",
+      "card_title": "20px (text-xl)",
+      "body": "16px (text-base)",
+      "secondary": "14px (text-sm)",
+      "labels": "12px (text-xs)"
+    },
+    "rules": [
+      "No font below 14px for interactive elements.",
+      "Headings (32px+) MUST use tight letter spacing (tracking-tight).",
+      "Overlines and Labels (12px) MUST be uppercase with wide spacing (tracking-widest) and medium/bold weights.",
+      "Font weights: Light (300) for display/elegance, Medium (500) for body, Bold (700) for highlights/CTAs."
+    ]
+  },
+  "layout_and_spacing": {
+    "grid": {
+      "desktop": "12-column grid",
+      "tablet": "8-column grid",
+      "mobile": "4-column grid"
+    },
+    "measurements": {
+      "sidebar_width": "280px",
+      "content_margin": "32px",
+      "gutter": "24px",
+      "min_touch_target": "44px (Strict requirement for POS screens)"
+    },
+    "surface_treatments": [
+      "Floating Windows: backdrop-blur-xl bg-white/70 border border-white/40 shadow-[0_32px_64px_rgba(15,23,42,0.1)] rounded-2xl.",
+      "Dock/Sidebar: backdrop-blur-2xl bg-white/60 shadow-lg border border-white/50.",
+      "Cards (Inner OS): Flat solid background (bg-white) with 1px border-slate-200, hover:shadow-md hover:-translate-y-0.5 transition-all."
+    ]
+  },
+  "components": {
+    "boot_screen": {
+      "layout": "Full screen overlay, absolute center logo.",
+      "animation": "JARVIS/VisionOS inspired sequence. Abstract fluid dark slate/emerald background. Central logo draws its path (SVG line animation), glows, and rapidly scales up/fades out into the OS desktop."
+    },
+    "login_screen": {
+      "layout": "Split layout or centered glass card over luxury hotel lobby background image.",
+      "features": "Role selection (Owner/Manager/Waiter) via large hover-tilt cards. Minimal input fields with glassmorphism."
+    },
+    "os_shell": {
+      "desktop": "Full viewport height. Background is a premium abstract or clean gradient.",
+      "top_bar": "macOS style thin bar at top (32px height). Contains global OS status, Clock, Weather, WiFi, and AI insights trigger.",
+      "sidebar": "280px width, Windows 11 aesthetic. Can be collapsed. Contains primary navigation.",
+      "dock": "Floating bottom center, macOS style. Contains currently active apps/windows.",
+      "floating_windows": "framer-motion powered draggable and resizable windows. Have macOS-style traffic light dots (close, minimize, maximize) on the top left of the window header."
+    },
+    "operations_dashboard": {
+      "layout": "Bento-grid 'Control Room' mode. Tight gaps (gap-6).",
+      "widgets": "Active Tables, Kitchen Queue, Revenue, Orders, Reservations, Waiting Customers, Staff, Avg Service Time, Table Turnover. Use Chart.js (or Recharts) for rich data visuals."
+    },
+    "kitchen_display_system_kds": {
+      "layout": "Kanban style or dense grid for high-speed readability.",
+      "cards": "Status colored cards (Received: Slate, Preparing: Amber, Ready: Emerald, Delayed: Red). Includes timers that pulse if delayed. Large typography for kitchen staff visibility."
+    },
+    "table_management": {
+      "layout": "Interactive visual floor map. Draggable tables, shape variations (round/square).",
+      "features": "Occupancy heatmap overlay. Status indicators (Dirty, Reserved, VIP). Right-click/Long-press context menu for merge/split."
+    },
+    "pos_interface": {
+      "layout": "Waiter-optimized, touch-first. 44px+ minimum touch targets.",
+      "features": "Quick category sidebar, large tap-to-add item cards, split billing sliding panel. High contrast text for fast readability."
+    },
+    "command_palette": {
+      "trigger": "Cmd+K (or Ctrl+K).",
+      "layout": "Centered screen, heavy backdrop-blur-2xl. Slate-900 background for the palette itself with glowing Cyan highlights on selected items.",
+      "features": "Quick search for tables, menu items, guests, settings."
+    },
+    "notification_center": {
+      "layout": "Slide-in panel from the right side (Windows 11 style) or stacked floating toasts (Sonner)."
+    },
+    "ai_assistant": {
+      "trigger": "Floating JARVIS-style orb button or top-bar icon.",
+      "features": "Expanding side panel or floating window providing predictive text, busy hours, and inventory recommendations."
+    }
+  },
+  "animations": {
+    "engine": "Framer Motion",
+    "defaults": {
+      "duration": 0.3,
+      "ease": [0.25, 1, 0.5, 1]
+    },
+    "interactions": [
+      "Hover Glow: Use radial gradients that follow mouse position (mouse-reactive neon) for premium cards.",
+      "Card Tilt: Subtle 3D tilt effect on role-selection or high-value widget cards.",
+      "Window Spawn: Scale up from 0.95 and fade in (opacity 0 to 1) with spring physics."
+    ]
+  },
+  "icons_and_assets": {
+    "library": "lucide-react",
+    "stroke_width": "1.5px to 2px, depending on size (clean and minimal)."
+  },
+  "media_urls": {
+    "login_background": {
+      "url": "https://images.unsplash.com/photo-1758194090785-8e09b7288199",
+      "description": "Luxurious modern hotel lobby with architectural details and plush seating, providing a premium hospitality vibe."
+    },
+    "os_desktop_wallpaper": {
+      "url": "https://images.pexels.com/photos/14822817/pexels-photo-14822817.jpeg",
+      "description": "Abstract, vibrant emerald and cyan ink swirling underwater. Provides a VisionOS/macOS-style deep, calm desktop background."
+    },
+    "empty_state_illustration": {
+      "url": "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "description": "Minimalist modern cafe interior. Perfect for empty states or placeholder visuals for the POS/Table screens."
+    }
+  },
+  "testing_requirements": {
+    "attributes": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case."
+  },
+  "instructions_to_main_agent": [
+    "Install required dependencies: framer-motion, lucide-react, chart.js (or recharts), tailwind-merge, clsx.",
+    "Implement a BootSequence component that renders first, then transitions to the LoginScreen, then into the OSDesktop layout.",
+    "The OSDesktop should manage a state array of 'openWindows' to render Draggable floating windows over the desktop wallpaper.",
+    "Apply `backdrop-blur-xl bg-white/70` extensively on windows and panels. Do not use opaque solid whites for OS floating elements to maintain the VisionOS aesthetic.",
+    "Strictly follow the color palette. Ensure the Inter font is applied globally.",
+    "Use data-testid on every button, input, and draggable window for testing compliance."
+  ]
+}
